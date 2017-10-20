@@ -32,18 +32,25 @@ function turnRed(){
 function gameOver(){
     var sessionStart = document.getElementById("status");
     
-    if (loser){
-        sessionStart.innerHTML = "HaHa! You lost.";
+    if (!loser){
+        loser = true;
+        sessionStart.innerHTML = "Congratulations! You won! :-)";
       } 
       else {
-          sessionStart.innerHTML = "Congratulations! You won! :)";
+          sessionStart.innerHTML = "HaHa! You lost.";
       }
  }
 
 function startGame(){
     loser = false;
     var bouns = document.querySelectorAll("div#maze div.boundary");
-    
+    document.addEventListener("mouseover",function(){
+        var x = event.clientX; //Get the horizontal coordinate
+        var y = event.clientY; //get the vertical coordinate
+        if(x < maze.offsetLeft || y > maze.offsetRight){
+            turnRed();
+        }
+    });
     for (var i = 0; i<bouns.length; i++){
         bouns[i].setAttribute("class","boundary");
     }
