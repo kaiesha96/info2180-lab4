@@ -1,4 +1,4 @@
-var sessionStart = document.getElementById("status");
+
 var loser = false; //whether the user hits a wall
 
 
@@ -30,6 +30,8 @@ function turnRed(){
 }
 
 function gameOver(){
+    var sessionStart = document.getElementById("status");
+    
     if (loser){
         sessionStart.innerHTML = "HaHa! You lost.";
       } 
