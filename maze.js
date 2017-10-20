@@ -12,6 +12,8 @@ window.onload = function()
   //	}
   	var e = document.getElementById("end");
    e.addEventListener("mouseover",gameOver);
+   var s = document.getElementById("start");
+   s.addEventListener("click",startGame);
    var allBoundaries = document.querySelectorAll("div#maze div.boundary");
   
       for (var x = 0; x < allBoundaries.length; x++){
@@ -35,5 +37,12 @@ function gameOver(){
           sessionStart.innerHTML = "Congratulations! You won! :)";
       }
  }
+
+function startGame(){
+    loser = false;
+    var bouns = document.querySelectorAll("div#maze div.boundary");
+    
+    for (var i = 0; i<bouns.length; i++){
+        bouns[i].setAttribute("class","boundary");
     }
 }
